@@ -26,8 +26,7 @@ namespace ChromiumBasedBrowser
         {
             Cef.Initialize(new CefSettings());
             browser = new ChromiumWebBrowser("https://datorium.eu");
-            browser.Width = 400;
-            browser.Height = 600;
+            browser.Dock = DockStyle.Fill;
             this.Controls.Add(browser);
         }
     }
