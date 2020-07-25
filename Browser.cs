@@ -85,5 +85,12 @@ namespace ChromiumBasedBrowser
 
             }
         }
+
+        private void toolStripButtonAddTab_Click(object sender, EventArgs e)
+        {
+            var newTabPage = new TabPage();
+            newTabPage.Text = "New Tab";
+            BrowserTabs.TabPages.Add(newTabPage);
+        }
     }
 }
