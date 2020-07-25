@@ -29,5 +29,10 @@ namespace ChromiumBasedBrowser
             browser.Dock = DockStyle.Fill;
             this.Controls.Add(browser);
         }
+
+        private void toolStripButtonGo_Click(object sender, EventArgs e)
+        {
+            browser.Load(toolStripAddressBar.Text);
+        }
     }
 }
