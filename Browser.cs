@@ -61,6 +61,15 @@ namespace ChromiumBasedBrowser
             }));
         }
 
+        private void Browser_TitleChanged(object sender, TitleChangedEventArgs e)
+        {
+            var selectedBrowser = (ChromiumWebBrowser)sender;
+            this.Invoke(new MethodInvoker(() =>
+            {
+                selectedBrowser.Parent.Text = e.Title;
+            }));
+        }
+
         private void toolStripButtonReload_Click(object sender, EventArgs e)
         {
             browser.Reload();
@@ -78,7 +87,8 @@ namespace ChromiumBasedBrowser
         {
             try
             {
-                browser.Load(address);
+                var selectedBrowser = (ChromiumWebBrowser)BrowserTabs.SelectedTab.Controls[0];
+                selectedBrowser.Load(address);
             }
             catch
             {
@@ -88,9 +98,27 @@ namespace ChromiumBasedBrowser
 
         private void toolStripButtonAddTab_Click(object sender, EventArgs e)
         {
+            AddBrowserTab();
+        }
+
+        private void AddBrowserTab()
+        {
+            //adding a tab
             var newTabPage = new TabPage();
             newTabPage.Text = "New Tab";
             BrowserTabs.TabPages.Add(newTabPage);
+
+            //adding browser
+            browser = new ChromiumWebBrowser("https://datorium.eu");
+            browser.Dock = DockStyle.Fill;
+
+            browser.AddressChanged += Browser_AddressChanged;
+            browser.TitleChanged += Browser_TitleChanged;
+
+            newTabPage.Controls.Add(browser);
         }
+
+
+
     }
 }
