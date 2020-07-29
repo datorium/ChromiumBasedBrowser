@@ -36,7 +36,7 @@
             this.toolStripButtonForward = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonReload = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonAddTab = new System.Windows.Forms.ToolStripButton();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPageAdd = new System.Windows.Forms.TabPage();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.BrowserTabs = new System.Windows.Forms.TabControl();
             this.toolStrip1.SuspendLayout();
@@ -116,15 +116,15 @@
             this.toolStripButtonAddTab.Text = "+";
             this.toolStripButtonAddTab.Click += new System.EventHandler(this.toolStripButtonAddTab_Click);
             // 
-            // tabPage2
+            // tabPageAdd
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1068, 524);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPageAdd.Location = new System.Drawing.Point(4, 25);
+            this.tabPageAdd.Name = "tabPageAdd";
+            this.tabPageAdd.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageAdd.Size = new System.Drawing.Size(1068, 524);
+            this.tabPageAdd.TabIndex = 1;
+            this.tabPageAdd.Text = "+";
+            this.tabPageAdd.UseVisualStyleBackColor = true;
             // 
             // tabPage1
             // 
@@ -139,13 +139,14 @@
             // BrowserTabs
             // 
             this.BrowserTabs.Controls.Add(this.tabPage1);
-            this.BrowserTabs.Controls.Add(this.tabPage2);
+            this.BrowserTabs.Controls.Add(this.tabPageAdd);
             this.BrowserTabs.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BrowserTabs.Location = new System.Drawing.Point(0, 27);
             this.BrowserTabs.Name = "BrowserTabs";
             this.BrowserTabs.SelectedIndex = 0;
             this.BrowserTabs.Size = new System.Drawing.Size(1076, 553);
             this.BrowserTabs.TabIndex = 1;
+            this.BrowserTabs.Click += new System.EventHandler(this.BrowserTabs_Click);
             // 
             // Browser
             // 
@@ -173,7 +174,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonForward;
         private System.Windows.Forms.ToolStripButton toolStripButtonReload;
         private System.Windows.Forms.ToolStripButton toolStripButtonAddTab;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPageAdd;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabControl BrowserTabs;
     }

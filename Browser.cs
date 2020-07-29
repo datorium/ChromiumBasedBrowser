@@ -32,7 +32,7 @@ namespace ChromiumBasedBrowser
         {
             Cef.Initialize(new CefSettings());            
             BrowserTabs.TabPages[0].Dispose();
-            BrowserTabs.TabPages[0].Dispose();
+            //BrowserTabs.TabPages[0].Dispose();
             AddBrowserTab();
         }
 
@@ -99,7 +99,7 @@ namespace ChromiumBasedBrowser
         {
             AddBrowserTab();
             //select the latest browser tab
-            BrowserTabs.SelectedTab = BrowserTabs.TabPages[BrowserTabs.TabPages.Count - 1];
+            BrowserTabs.SelectedTab = BrowserTabs.TabPages[BrowserTabs.TabPages.Count - 2];
         }
 
         private void AddBrowserTab()
@@ -107,7 +107,9 @@ namespace ChromiumBasedBrowser
             //adding a tab
             var newTabPage = new TabPage();
             newTabPage.Text = "New Tab";
-            BrowserTabs.TabPages.Add(newTabPage);
+            //BrowserTabs.TabPages.Add(newTabPage);
+            BrowserTabs.TabPages.Insert(BrowserTabs.TabPages.Count - 1, newTabPage);
+
 
             //adding browser
             browser = new ChromiumWebBrowser("https://datorium.eu");
@@ -119,6 +121,15 @@ namespace ChromiumBasedBrowser
         }
 
 
-
+        private void BrowserTabs_Click(object sender, EventArgs e)
+        {
+            //MessageBox.Show("Tab Index Changed");
+            if (BrowserTabs.SelectedTab == BrowserTabs.TabPages[BrowserTabs.TabPages.Count - 1])
+            {
+                AddBrowserTab();
+                //select the latest browser tab
+                BrowserTabs.SelectedTab = BrowserTabs.TabPages[BrowserTabs.TabPages.Count - 2];
+            }
+        }
     }
 }
