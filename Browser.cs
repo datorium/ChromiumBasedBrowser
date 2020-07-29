@@ -30,11 +30,10 @@ namespace ChromiumBasedBrowser
 
         private void InitializeBrowser()
         {
-            Cef.Initialize(new CefSettings());
-            browser = new ChromiumWebBrowser("https://datorium.eu");
-            browser.Dock = DockStyle.Fill;
-            BrowserTabs.TabPages[0].Controls.Add(browser);
-            browser.AddressChanged += Browser_AddressChanged;
+            Cef.Initialize(new CefSettings());            
+            BrowserTabs.TabPages[0].Dispose();
+            BrowserTabs.TabPages[0].Dispose();
+            AddBrowserTab();
         }
 
         private void toolStripButtonGo_Click(object sender, EventArgs e)
@@ -99,6 +98,8 @@ namespace ChromiumBasedBrowser
         private void toolStripButtonAddTab_Click(object sender, EventArgs e)
         {
             AddBrowserTab();
+            //select the latest browser tab
+            BrowserTabs.SelectedTab = BrowserTabs.TabPages[BrowserTabs.TabPages.Count - 1];
         }
 
         private void AddBrowserTab()
@@ -111,10 +112,9 @@ namespace ChromiumBasedBrowser
             //adding browser
             browser = new ChromiumWebBrowser("https://datorium.eu");
             browser.Dock = DockStyle.Fill;
-
             browser.AddressChanged += Browser_AddressChanged;
             browser.TitleChanged += Browser_TitleChanged;
-
+            browser.TitleChanged += Browser_TitleChanged;
             newTabPage.Controls.Add(browser);
         }
 
