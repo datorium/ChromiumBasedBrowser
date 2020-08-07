@@ -39,6 +39,7 @@
             this.tabPageAdd = new System.Windows.Forms.TabPage();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.BrowserTabs = new System.Windows.Forms.TabControl();
+            this.toolStripButtonLoadCustomHTML = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.BrowserTabs.SuspendLayout();
             this.SuspendLayout();
@@ -52,7 +53,8 @@
             this.toolStripButtonBack,
             this.toolStripButtonForward,
             this.toolStripButtonReload,
-            this.toolStripButtonAddTab});
+            this.toolStripButtonAddTab,
+            this.toolStripButtonLoadCustomHTML});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1076, 27);
@@ -148,6 +150,16 @@
             this.BrowserTabs.TabIndex = 1;
             this.BrowserTabs.Click += new System.EventHandler(this.BrowserTabs_Click);
             // 
+            // toolStripButtonLoadCustomHTML
+            // 
+            this.toolStripButtonLoadCustomHTML.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButtonLoadCustomHTML.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonLoadCustomHTML.Image")));
+            this.toolStripButtonLoadCustomHTML.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonLoadCustomHTML.Name = "toolStripButtonLoadCustomHTML";
+            this.toolStripButtonLoadCustomHTML.Size = new System.Drawing.Size(89, 24);
+            this.toolStripButtonLoadCustomHTML.Text = "Load HTML";
+            this.toolStripButtonLoadCustomHTML.Click += new System.EventHandler(this.toolStripButtonLoadCustomHTML_Click);
+            // 
             // Browser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -177,6 +189,7 @@
         private System.Windows.Forms.TabPage tabPageAdd;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabControl BrowserTabs;
+        private System.Windows.Forms.ToolStripButton toolStripButtonLoadCustomHTML;
     }
 }
 

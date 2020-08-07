@@ -131,5 +131,18 @@ namespace ChromiumBasedBrowser
                 BrowserTabs.SelectedTab = BrowserTabs.TabPages[BrowserTabs.TabPages.Count - 2];
             }
         }
+
+        private void LoadCustomHTML()
+        {
+            string htmlContent = "<html><head><title>Custom HTML</title></head><body><ul><li>Coffee</li><li>Tea</li><li>Milk</li></ul></body></html>";
+            var selectedTabPage = (TabPage)BrowserTabs.SelectedTab;
+            var selectedBrowser = (ChromiumWebBrowser)selectedTabPage.Controls[0];
+            selectedBrowser.LoadHtml(htmlContent);            
+        }
+
+        private void toolStripButtonLoadCustomHTML_Click(object sender, EventArgs e)
+        {
+            LoadCustomHTML();
+        }
     }
 }
